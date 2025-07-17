@@ -1,35 +1,15 @@
 - name: Startup
   width: slim
-  hide-desktop-navigation: true
   center-vertically: true
   columns:
     - size: full
       widgets:
         - type: search
-          autofocus: true
-
-        - type: monitor
-          cache: 1m
-          title: Services
-          sites:
-            - title: Jellyfin
-              url: https://yourdomain.com/
-              icon: si:jellyfin
-            - title: Gitea
-              url: https://yourdomain.com/
-              icon: si:gitea
-            - title: qBittorrent # only for Linux ISOs, of course
-              url: https://yourdomain.com/
-              icon: si:qbittorrent
-            - title: Immich
-              url: https://yourdomain.com/
-              icon: si:immich
-            - title: AdGuard Home
-              url: https://yourdomain.com/
-              icon: si:adguard
-            - title: Vaultwarden
-              url: https://yourdomain.com/
-              icon: si:vaultwarden
+          search-engine: google
+          bangs:
+            - title: YouTube
+              shortcut: "!yt"
+              url: https://www.youtube.com/results?search_query={QUERY}
 
         - type: bookmarks
           groups:

@@ -1,4 +1,4 @@
-- name: DevStuff
+- name: Monitoring
   # Optionally, if you only have a single page you can hide the desktop navigation for a cleaner look
   # hide-desktop-navigation: true
   columns:
@@ -23,8 +23,21 @@
             - type: local
               name: archlnx
 
-        - type: docker-containers
-          hide-by-default: false
+        
+        - type: monitor
+          title: Infrastructure Status
+          cache: 1m
+          sites:
+              - title: DevX API
+                url: https://api.devx.parthkapoor.me/ping
+                icon: si:go
+              - title: DevX Frontend
+                url: https://devx.parthkapoor.me/
+                icon: https://devx.parthkapoor.me/logo.png
+              - title: parthkapoor.me
+                url: https://parthkapoor.me/
+                icon: si:nextdotjs
+
 
     - size: small
       widgets:
@@ -63,4 +76,4 @@
                   <div class="size-h1" style="margin-top: 6px;">{{ printf "%.2f" $dayProgress }}% of the day has passed</div>
                 </div>
 
-    -
+ 

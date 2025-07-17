@@ -6,9 +6,15 @@ theme:
   # will not be reflected until the browser cache is cleared (Ctrl+F5)
   custom-css-file: /assets/user.css
 
+auth:
+  secret-key: ${SECRET_KEY}
+  users:
+    admin:
+      password: ${ADMIN_PASSWORD}
+
 pages:
   # It's not necessary to create a new file for each page and include it, you can simply
   # put its contents here, though multiple pages are easier to manage when separated
   - $include: home.yml
+  - $include: monitoring.yml
   - $include: startup.yml
-  - $include: devstuff.yml
