@@ -1,0 +1,66 @@
+- name: DevStuff
+  # Optionally, if you only have a single page you can hide the desktop navigation for a cleaner look
+  # hide-desktop-navigation: true
+  columns:
+    - size: small
+      widgets:
+        - type: repository
+          repository: parthkapoor-dev/devex
+          pull-requests-limit: 5
+          issues-limit: 3
+          commits-limit: 3
+
+        - type: repository
+          repository: parthkapoor-dev/better-axios
+          pull-requests-limit: 5
+          issues-limit: 3
+          commits-limit: 3
+
+    - size: full
+      widgets:
+        - type: server-stats
+          servers:
+            - type: local
+              name: archlnx
+
+        - type: docker-containers
+          hide-by-default: false
+
+    - size: small
+      widgets:
+        - type: group
+          widgets:
+            - type: custom-api
+              title: Day
+              body-type: string
+              skip-json-validation: true
+              cache: 1s
+              template: |
+                {{ $localTime := now }}
+                {{ $secondsPerDay := 86400 }}
+                {{ $elapsedSeconds := add (mul $localTime.Hour 3600) (mul $localTime.Minute 60) | add   $localTime.Second }}
+                {{ $dayProgress := div (mul $elapsedSeconds 100.0) $secondsPerDay }}
+
+                {{ $gradient := "" }}
+                {{ if lt $dayProgress 10.0 }}
+                  {{ $gradient = "#70a1ff" }}
+                {{ else if lt $dayProgress 25.0 }}
+                  {{ $gradient = "#ff6b6b, #70a1ff" }}
+                {{ else if lt $dayProgress 50.0 }}
+                  {{ $gradient = "#ff6b6b, #f8e71c, #7ed6df" }}
+                {{ else }}
+                  {{ $gradient = "#ff6b6b, #f8e71c, #7ed6df, #70a1ff" }}
+                {{ end }}
+
+                <div style="font-family: sans-serif; text-align: center;">
+                  <div style="width: 100%; height: 12px; background: #23262F; border:1px solid gray; border-radius: 10px; overflow: hidden;">
+                    <div style="
+                      height: 100%;
+                      width: {{ $dayProgress }}%;
+                      background: linear-gradient(90deg, {{ $gradient }});
+                    "></div>
+                  </div>
+                  <div class="size-h1" style="margin-top: 6px;">{{ printf "%.2f" $dayProgress }}% of the day has passed</div>
+                </div>
+
+    -

@@ -39,11 +39,12 @@
 
         - type: videos
           channels:
-            - UCXuqSBlHAE6Xw-yeJA0Tunw # Linus Tech Tips
-            - UCR-DXc1voovS8nhAvccRZhg # Jeff Geerling
+            - UCbRP3c757lWg9M-U7TyEkXA # Theo GG
+            - UCWX0cUR2rZcqKei1Vstww-A # Harkirat Singh
             - UCsBjURrPoezykLs9EqgamOA # Fireship
-            - UCBJycsmduvYEL83R_U4JriQ # Marques Brownlee
+            - UCWQaM7SpSECp9FELz-cHzuQ # Dreams of Code
             - UCHnyfMqiRRG1u-2MsSQLbXA # Veritasium
+            - UCkVfrGwV-iG9bSsgCbrNPxQ # Better Stack
 
         - type: group
           widgets:
